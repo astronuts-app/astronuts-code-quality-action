@@ -6,7 +6,7 @@ This action runs Astronuts code quality scans.
 
 These are some of the supported input parameters of the action.
 
-- `sourceLanguage` - **_(Required)_** the programming language of the source code to be analyzed.
+- `sourceLanguage` - **_(Optional)_** the programming language of the source code to be analyzed.
 - `rootDir` - _(Optional)_ The root directory of source code. If unspecified, its auto-detected.
 - `buildSystem` - _(Optional)_ The build system. If not specified, the action tries to auto-detect one. For a list of supported build systems, see documentation.
 - `failOnError` - _(Optional)_ If set to true, the build will fail if the code quality analysis fails. Build will pass silently otherwise.
@@ -23,16 +23,14 @@ These are some of the supported input parameters of the action.
 - `npm`
 - `pip`
 
-Note: If the build system is not specified, the action will attempt to auto-detect it. Currently, only one build system 
-per repository is supported. If your repository utilizes multiple build systems or tools, it is recommended to explicitly 
-specify the build system for which you wish to run the Astronuts code quality action to ensure accurate analysis.
+Note* : There is no need to specify build systems and languages explicitly used in the project as we use our
+auto-detection system to detect that.
+<br></br>
+**We now support monorepos with multiple build systems and languages.
 
 ## Example usage
 
 ```yaml
 uses: actions/astronuts-code-quality-action@v4
-with:
-  sourceLanguage: 'java'
-  buildSystem: 'gradle'
 ```
 
